@@ -7,6 +7,7 @@ body {
     padding: 0;
     height: 90vh;
     display: flex;
+    font-family: 'Creepster', cursive;
 }
 
 section#score {
@@ -109,6 +110,7 @@ section#over pre {
     text-align: center;
     font-size: 100px;
     font-weight: bolder;
+    font-family: 'Creepster', cursive;
     color: brown;
     padding:0;
     margin:0;
@@ -128,5 +130,6 @@ section#over pre {
     margin: 1em auto;
     font-size:30px;
     font-weight: bold;
+    font-family: 'Creepster', cursive;
     cursor: pointer;
 }
