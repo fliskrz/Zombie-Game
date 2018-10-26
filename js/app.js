@@ -10,4 +10,9 @@ document.addEventListener("DOMContentLoaded", function (event) {
         newGame.turnFurry(event);
     });
 
+    document.querySelector('button').addEventListener('click', function (event) {
+        window.location.reload();
+    });
 });
+
+

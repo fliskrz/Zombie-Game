@@ -7,6 +7,7 @@ var Game = function () {
     this.coin = new Coin();
     this.score = 0;
     var self = this;
+    var pre = document.createElement('pre');
 
     this.index = function (x, y) {
         return x + (y * 10);
@@ -17,7 +18,7 @@ var Game = function () {
     };
 
     this.showFurry = function () {
-        this.board[this.index(this.furry.x, this.furry.y)].classList.add('furry',self.furry.direction);
+        this.board[this.index(this.furry.x, this.furry.y)].classList.add('furry',this.furry.direction);
     };
 
     this.showCoin = function () {
@@ -43,16 +44,16 @@ var Game = function () {
     this.turnFurry = function (event) {
         switch (event.which) {
             case 37:
-                self.furry.direction = "left";
+                this.furry.direction = "left";
                 break;
             case 39:
-                self.furry.direction = "right";
+                this.furry.direction = "right";
                 break;
             case 40:
-                self.furry.direction = "up";
+                this.furry.direction = "up";
                 break;
             case 38:
-                self.furry.direction = "down";
+                this.furry.direction = "down";
                 break;
             default:
         }
@@ -61,9 +62,13 @@ var Game = function () {
     this.checkCoinCollision = function () {
         if (this.furry.x === this.coin.x && this.furry.y === this.coin.y) {
             document.querySelector('.coin').classList.remove('coin');
-            this.score++;
-            document.querySelector('#score div strong').innerHTML = this.score;
+            var scoreCounter = document.querySelector('#score div strong');
+
+            this.coin = new Coin();
             this.showCoin();
+
+            this.score++;
+            scoreCounter.innerHTML = this.score;
         }
     };
 
@@ -72,11 +77,11 @@ var Game = function () {
             clearInterval(this.idSetInterval);
             this.board[this.index(this.coin.x, this.coin.y)].classList.remove('coin');
 
-            document.querySelector('#board').classList.add('invisible');
-            document.querySelector('#score').classList.add('invisible');
+            // document.querySelector('#board').classList.add('invisible');
+            // document.querySelector('#score').classList.add('invisible');
             document.querySelector('#over').classList.remove('invisible');
-            var pre = document.createElement('pre');
-            document.querySelector('#over').appendChild(pre);
+            document.querySelector('#over').insertBefore(pre, document.querySelector('button'));
+            // document.querySelector('#over').appendChild(pre);
             pre.innerHTML = this.score;
             document.querySelector('#over pre').innerHTML = this.score;
             this.hideVisibleFurry();

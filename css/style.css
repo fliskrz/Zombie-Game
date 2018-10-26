@@ -52,19 +52,19 @@ section#score div {
     animation: walk .25s steps(3) infinite;
 }
 
-.up {
+.down {
     background-position-y: -128px;
 }
 
-.down {
+.up {
     background-position-y: 0;
 }
 
-.left {
+.right {
     background-position-y: -64px;
 }
 
-.right {
+.left {
     background-position-y: -192px;
 }
 
@@ -97,9 +97,10 @@ section#over {
     left: 0;
     top: 0;
     z-index: 1;
-    padding: 10px;
-    background-color: rgba(255, 255, 0, 0.75);
+    background-color: rgba(0, 0, 0, 0.85);
+    font-size:50px;
     text-align: center;
+    color: darkred;
 }
 
 section#over pre {
@@ -109,8 +110,23 @@ section#over pre {
     font-size: 100px;
     font-weight: bolder;
     color: brown;
+    padding:0;
+    margin:0;
 }
 
 .invisible {
     display: none;
+}
+
+.tryagain{
+    text-align: center;
+    padding: 0.1em;
+    background-color: rgba(211, 211, 211, 0.75);
+    border: 1px solid lightgray;
+    border-radius: 1px;
+    box-shadow: 1px 1px 5px 1px lightgray;
+    margin: 1em auto;
+    font-size:30px;
+    font-weight: bold;
+    cursor: pointer;
 }
