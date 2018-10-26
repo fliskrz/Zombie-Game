@@ -13,7 +13,7 @@ var Game = function () {
     };
 
     this.showFurry = function () {
-        this.board[this.index(this.furry.x, this.furry.y)].classList.add('furry');
+        this.board[this.index(this.furry.x, this.furry.y)].classList.add('furry', this.furry.direction);
     };
 
     this.hideVisibleFurry = function() {
