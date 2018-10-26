@@ -5,10 +5,13 @@
 body {
     margin: 0;
     padding: 0;
+    height: 90vh;
+    display: flex;
 }
 
 section#score {
-    width: 100%;
+    align-self: center;
+    width: 30%;
 }
 
 #board {
@@ -25,46 +28,50 @@ section#score {
     height: 64px;
 }
 
-.tile{
-    background-position: center;
-    background-size: cover;
-}
-
 section#score div {
     width: 10em;
-    height: 3em;
+    /*height: 3em;*/
     text-align: center;
-    padding: 0.5em;
+    padding: 0.1em;
     background-color: rgba(211, 211, 211, 0.75);
     border: 1px solid lightgray;
     border-radius: 1px;
     box-shadow: 1px 1px 5px 1px lightgray;
     margin: 1em auto;
+    font-size:30px;
+    font-weight: bold;
 }
 
 .furry {
-    background:url('../images/zombie.png');
-    background-position:left top;
+    background: url('../images/zombie.png');
+    background-position-x: left;
     background-size: auto;
     background-repeat: no-repeat;
-    height:64px;
-    width:64px;
+    height: 64px;
+    width: 64px;
+    animation: walk .25s steps(3) infinite;
 }
 
-.up{
-
+.up {
+    background-position-y: -128px;
 }
 
-.down{
-
+.down {
+    background-position-y: 0;
 }
 
-.left{
-
+.left {
+    background-position-y: -64px;
 }
 
-.right{
+.right {
+    background-position-y: -192px;
+}
 
+@keyframes walk {
+    100% {
+        background-position-x: -192px;
+    }
 }
 
 .coin {
@@ -78,7 +85,7 @@ section#score div {
     50% {
         transform: scaleX(-1);
     }
-    100%{
+    100% {
         transform: scaleX(1);
     }
 }
